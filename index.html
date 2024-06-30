@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height: 100vh; padding: 0; margin: 0;">
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color:#246aeb ;">
+        <div style="border: 2px solid black;">
+            <img src="img/img1.webp" style="width: 100%; height: 100%;" id="img">
+        </div>
+        <div>
+            <button type="button" id="trocar">Trocar</button>
+            <select name="" id="selec">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>  
+    </div>
+    <script>
+
+        let selec = document.querySelector("#selec")
+        let trocar = document.querySelector("#trocar");
+        let imagem = document.querySelector("#img");
+        let i;
+
+        let imagens = [
+                imagem.src = 'img/img1.webp',
+                imagem.src = 'img/img2.webp',
+                imagem.src = 'img/img3.jpeg'
+            ];
+
+        trocar.addEventListener("click", () => {
+            if(i == undefined || i > 2) {
+                i = 0;
+            }
+
+            imagem.src = imagens[i];
+            i++;
+            
+        })
+
+        selec.addEventListener("change", function() {
+            let valorSelec = selec.value;
+            imagem.src = imagens[valorSelec - 1];
+        })
+    </script>
+</body>
+</html>
